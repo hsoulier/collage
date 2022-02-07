@@ -129,7 +129,9 @@ table {
 }
 
 body {
-	font: 16px / 1.5 var(--font-sans);
+	font: 16px / 1.5 var(--font-base);
 	background-color: var(--clr-white);
 	color: var(--clr-black);
+	// cursor: none;
+	min-height: calc(100 * var(--vh, 1vh));
 }

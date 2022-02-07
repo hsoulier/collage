@@ -1,7 +1,7 @@
 import { gsap } from "gsap"
 
-const cursor = document.querySelector(".cursor__inner")
-const cursorOut = document.querySelector(".cursor__outer")
+const cursor = document.querySelector(".cursor__inner")!
+const cursorOut = document.querySelector(".cursor__outer")!
 const mouse = {
 	x: 0,
 	y: 0,
@@ -14,8 +14,14 @@ export class Cursor {
 		document.addEventListener("mousemove", this.onMouseMove)
 	}
 	private onMouseMove(e: MouseEvent) {
-		mouse.x = e.clientX
-		mouse.y = e.clientY
+		const el = (e.target as Element).tagName
+		;[cursor, cursorOut].forEach(($el) =>
+			el === "A"
+				? $el.classList.add("link-hover")
+				: $el.classList.remove("link-hover")
+		)
+		mouse.x = e.pageX
+		mouse.y = e.pageY
 		gsap.set(cursor, {
 			...mouse,
 		})

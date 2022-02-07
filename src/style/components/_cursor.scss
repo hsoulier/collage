@@ -1,0 +1,36 @@
+.cursor {
+	$transiCursor: 250ms ease;
+	&__inner,
+	&__outer {
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translate3d(-50%, -50%, 0);
+		mix-blend-mode: difference;
+	}
+	&__inner {
+		--size-inner: 1rem;
+		width: var(--size-inner);
+		height: var(--size-inner);
+		background-color: var(--clr-primary);
+		border-radius: 999px;
+		z-index: 999;
+		transition: opacity #{$transiCursor};
+		&.link-hover {
+			opacity: 0;
+		}
+	}
+	&__outer {
+		--size-outer: 5rem;
+		width: var(--size-outer);
+		height: var(--size-outer);
+		border: 1px solid var(--clr-primary);
+		border-radius: 999px;
+		z-index: 999;
+		transition: width #{$transiCursor}, height #{$transiCursor};
+		&.link-hover {
+			--size-outer: 1rem;
+		}
+	}
+}

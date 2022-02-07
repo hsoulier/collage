@@ -1,0 +1,19 @@
+.navbar {
+	&__container {
+    padding: .5rem 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&__links {
+		display: inline-flex;
+		gap: 2rem;
+		align-items: center;
+		font-size: 1.25rem;
+    font-weight: 400;
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+	}
+}
